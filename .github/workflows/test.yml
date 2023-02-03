@@ -1,0 +1,21 @@
+name: Run a test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+ test:
+    runs-on: windows-latest
+    steps:
+     - uses: actions/checkout@v2
+     - name: Create report file
+       run: date +%s > report.txt  
+
+     
+     - name: Minecraft AFKBot
+       uses: Minionguyjpro/Afk-bot@master
+       with:
+        ip: ${{ secrets.server_ip }}
+        name: ${{ secrets.bot_name }}
+        port: ${{ secrets.server_port }}
